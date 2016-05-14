@@ -6,11 +6,14 @@ import sync from 'browser-sync'
 import watch from 'gulp-watch'
 
 const errorHandler = notify.onError('<%= error.message %>')
+const config = {
+  includePaths: ['node_modules']
+}
 
 gulp.task('css', () =>
   gulp.src('source/index.scss')
     .pipe(plumber({errorHandler}))
-    .pipe(sass().on('error', sass.logError))
+    .pipe(sass(config).on('error', sass.logError))
     .pipe(gulp.dest('dist'))
     .pipe(sync.stream())
 )
