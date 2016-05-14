@@ -1,0 +1,11 @@
+@function media-min($value) {
+  @return "(min-width: #{$value})";
+}
+
+@function media-max($value) {
+  @return "(max-width: #{$value})";
+}
+
+@function media-range($min, $max) {
+  @return "#{media-min($min)} and #{media-max($max)}";
+}

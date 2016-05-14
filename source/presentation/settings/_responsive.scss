@@ -1,0 +1,46 @@
+$breakpoint: (
+  mobile-s: 320px,
+  mobile-m: 375px,
+  mobile-l: 425px,
+  tablet: 768px,
+  laptop: 1024px,
+  laptop-l: 1440px
+);
+
+$media: (
+  mobile-s: media-max(map-get($breakpoint, 'mobile-m') - 1),
+  mobile-m: media-range(
+    map-get($breakpoint, 'mobile-m'),
+    map-get($breakpoint, 'mobile-l') - 1
+  ),
+  mobile-l: media-range(
+    map-get($breakpoint, 'mobile-l'),
+    map-get($breakpoint, 'tablet') - 1
+  ),
+  tablet: media-range(
+    map-get($breakpoint, 'tablet'),
+    map-get($breakpoint, 'laptop') - 1
+  ),
+  laptop: media-range(
+    map-get($breakpoint, 'laptop'),
+    map-get($breakpoint, 'laptop-l') - 1
+  ),
+  laptop-l: media-min(map-get($breakpoint, 'laptop-l'))
+);
+
+$media: map-merge($media, (
+  mobile-s-up: media-min(map-get($breakpoint, 'mobile-s')),
+  mobile-m-up: media-min(map-get($breakpoint, 'mobile-m')),
+  mobile-l-up: media-min(map-get($breakpoint, 'mobile-l')),
+  tablet-up: media-min(map-get($breakpoint, 'tablet')),
+  laptop-up: media-min(map-get($breakpoint, 'laptop')),
+  laptop-l-up: media-min(map-get($breakpoint, 'laptop-l'))
+));
+
+$media: map-merge($media, (
+  mobile-s-down: media-min(map-get($breakpoint, 'mobile-m') - 1),
+  mobile-m-down: media-min(map-get($breakpoint, 'mobile-l') - 1),
+  mobile-l-down: media-min(map-get($breakpoint, 'tablet') - 1),
+  tablet-down: media-min(map-get($breakpoint, 'laptop') - 1),
+  laptop-down: media-min(map-get($breakpoint, 'laptop-l') - 1)
+));

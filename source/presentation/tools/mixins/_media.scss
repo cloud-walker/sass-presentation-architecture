@@ -1,0 +1,10 @@
+@mixin media($type: false) {
+  @if $type {
+    @media screen and #{map-get($media, $type)} {
+      @content;
+    }
+  }
+  @else {
+    @error "Missing media type.";
+  }
+}

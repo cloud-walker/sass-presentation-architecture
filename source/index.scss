@@ -2,4 +2,51 @@
 
 body {
   background-color: #eee;
+
+  &:after {
+    content: 'null';
+  }
+
+  @include media('mobile-s') {
+    background-color: green;
+
+    &:after {
+      content: 'mobile-s';
+    }
+  }
+  @include media('mobile-m') {
+    background-color: red;
+
+    &:after {
+      content: 'mobile-m';
+    }
+  }
+  @include media('mobile-l') {
+    background-color: blue;
+
+    &:after {
+      content: 'mobile-l';
+    }
+  }
+  @include media('tablet') {
+    background-color: orange;
+
+    &:after {
+      content: 'tablet';
+    }
+  }
+  @include media('laptop') {
+    background-color: yellow;
+
+    &:after {
+      content: 'laptop';
+    }
+  }
+  @include media('laptop-l') {
+    background-color: purple;
+
+    &:after {
+      content: 'laptop-l';
+    }
+  }
 }
